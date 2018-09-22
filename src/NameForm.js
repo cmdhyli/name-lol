@@ -27,20 +27,14 @@ class NameForm extends React.Component {
 
         let array = [];
 
-        Http.onreadystatechange=(e) => {
-            let obj_str = Http.responseText;
-            console.log('response', obj_str);
-            let obj = JSON.parse('[{"word":"msdf","score":15001,"tags":["n","prop"]},{"word":"sdf","score":15001,"tags":["n","prop"]},{"word":"gsdf","score":14999,"tags":["n","prop"]}]');
-            console.log('[{"word":"msdf","score":15001,"tags":["n","prop"]},{"word":"sdf","score":15001,"tags":["n","prop"]},{"word":"gsdf","score":14999,"tags":["n","prop"]}]' == Http.responseText);
-            // let obj = JSON.parse(obj_str);
-            // console.log('obj', obj);
+        Http.onload=(e) => {
+            array = JSON.parse(Http.responseText);
+            this.setState({
+                ...this.state,
+                names: array.map((x) => x.word),
+            });
         }
-
-
-        this.setState({
-            ...this.state,
-            names: ['xd', 'hi']
-        });
+        
         event.preventDefault();
     }
 
