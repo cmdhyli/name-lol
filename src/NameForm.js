@@ -12,6 +12,14 @@ class NameForm extends React.Component {
 
   handleSubmit = (event) => {
     alert('A name was submitted: ' + this.state.value);
+    const Http = new XMLHttpRequest();
+    const url = `https://api.datamuse.com/words?ml=${this.state.value}&max=4`;
+    Http.open("GET", url);
+    Http.send();
+
+    Http.onreadystatechange=(e) => {
+      console.log(Http.responseText);
+    }
     event.preventDefault();
   }
 
