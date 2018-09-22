@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import NameForm from './NameForm'
 
 class App extends Component {
+  handlechange = (event) => {
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -13,6 +18,8 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+
+        <NameForm />
       </div>
     );
   }
