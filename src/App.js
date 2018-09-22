@@ -4,10 +4,6 @@ import './App.css';
 import NameForm from './NameForm'
 
 class App extends Component {
-  handlechange = (event) => {
-
-  }
-
   render() {
     return (
       <div className="App">
